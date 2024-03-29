@@ -43,7 +43,7 @@ test_fks_static: test_fks.c $(STATIC_LIB)
 
 test_fks_shared: test_fks.c $(SHARED_LIB)
 	mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) -o $(SHARED_BIN) test_fks.c -L$(BUILD_DIR) -lhash
+	$(CC) $(CFLAGS) -o $(SHARED_BIN) test_fks.c -L$(BUILD_DIR) -Wl,-rpath,$(BUILD_DIR) -lhash
 
 clean: 
 	-rm -rf $(BUILD_DIR)
